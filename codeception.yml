@@ -1,0 +1,39 @@
+# suite config
+suites:
+    acceptance:
+        actor: AcceptanceTester
+        path: .
+        modules:
+            enabled:
+                - WebDriver:
+                    url: http://localhost/uptd-musirawas
+                    browser: chrome
+                - \Helper\Acceptance
+                # - Db:
+                #     dsn: 'mysql:host=localhost;dbname=db_amr_test'
+                #     user: 'root'
+                #     password: ''
+                #     dump: 'tests/_data/dump.sql'
+                #     populate: true
+                #     cleanup: false
+                #     reconnect: false
+                
+extensions:
+    enabled: [Codeception\Extension\RunFailed]
+
+params: 
+    - env
+
+gherkin: []    
+
+# additional paths
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+
+settings:
+    shuffle: false
+    lint: true
